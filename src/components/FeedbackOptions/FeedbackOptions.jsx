@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Box from '../Box/Box';
 
 const FeedbackOpt = ({ onChoiceFeedback, options }) => {
+  // console.log(good);
   return (
     <Box
       display="flex"
@@ -10,12 +11,15 @@ const FeedbackOpt = ({ onChoiceFeedback, options }) => {
       // alignItems="center"
       // gridRowGap="10 px"
     >
-      {options.map(option => {
+      {options.map(({ id }) => {
         return (
-          <Box ml="10px" key={option}>
-            <button type="button" onClick={onChoiceFeedback}>
-              {option.slice(0, 1).toUpperCase() +
-                option.slice(1, option.length)}
+          <Box ml="10px" key={id}>
+            <button
+              type="button"
+              name={id}
+              onClick={() => onChoiceFeedback(id)}
+            >
+              {id.slice(0, 1).toUpperCase() + id.slice(1, id.length)}
             </button>
           </Box>
         );
@@ -25,7 +29,7 @@ const FeedbackOpt = ({ onChoiceFeedback, options }) => {
 };
 export default FeedbackOpt;
 
-FeedbackOpt.propTypes = {
-  onChoiceFeedback: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+// FeedbackOpt.propTypes = {
+//   onChoiceFeedback: PropTypes.func.isRequired,
+//   options: PropTypes.arrayOf(PropTypes.string).isRequired,
+// };
