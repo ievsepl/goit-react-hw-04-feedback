@@ -37,7 +37,6 @@ export const App = () => {
     return (good * 100) / countTotalFeedback();
   };
 
-  //
   // //
   //   const [feedback, setFeedback] = useState(feedbackList);
   //   // console.log(feedbackList);
